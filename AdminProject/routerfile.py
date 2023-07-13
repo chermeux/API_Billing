@@ -7,5 +7,5 @@ router = routers.SimpleRouter()
 ######################### Declare our Urls #########################
 
 #### App createBill ####
-#/api/createBill/category
+#/api/BilltoCustomer
 router.register('BilltoCustomer', CustomerBillViewset, basename='BilltoCustomer')
