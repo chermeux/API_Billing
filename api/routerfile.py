@@ -1,5 +1,5 @@
 from rest_framework import routers
-from createBill.views import CustomerBillViewset
+from api.views import CustomerBillViewset
 
 ######################### Declare our router #########################
 router = routers.SimpleRouter()
