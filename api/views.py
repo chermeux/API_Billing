@@ -7,12 +7,10 @@ from api.serializers import CustomerBillSerializer
 from rest_framework.permissions import IsAuthenticated
 
 
-################################### Partie API ###################################
-
 class CustomerBillViewset(ReadOnlyModelViewSet):#(MultipleSerializerMixin, ModelViewSet) #TODO mettre ça pour utiliser tout le CRUD
     serializer_class = CustomerBillSerializer
     #TODO voir si nous ne devons pas rajouter plus d'élements comme une authentification que pour un certain genre de personnes
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]#TODO mettre ça pour autoriser le CRUD juste aux personnes identifiées
 
     def get_queryset(self):
         #TODO ATTENTION SECURITE - ici nous récupérons tous les factures, mais faudra récupérer que les factures faites par un client donc ne pas utiliser all

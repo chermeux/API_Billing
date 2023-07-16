@@ -14,16 +14,16 @@ class TestCustomer_Bill(APITestCase):
         return value.strftime("%Y-%m-%d")
 
     def test_list(self):
-        #DataBilltoCustomer = Customer_Bill.objects.create(InvoiceNumber="1", InvoiceReason="Test 1", Designations="Les designations", Quantities="2", PriceHT="4", TVA="1", AddInformation="supplementaire", CreationDate=datetime.now())
+        DataBilltoCustomer = Customer_Bill.objects.create(InvoiceNumber="1", InvoiceReason="Test 1", Designations="Les designations", Quantities="2", PriceHT="4", TVA="1", AddInformation="supplementaire", CreationDate=datetime.now())
 
         response = self.client.get(reverse("BilltoCustomer-list"))
         # Nous vérifions que le status code est bien 200
         # et que les valeurs retournées sont bien celles attendues
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        """
-        excepted = [
+
+        excepted =[
             {
-                'id': DataBilltoCustomer.pk,
+                'id': DataBilltoCustomer.id,
                 'InvoiceNumber': DataBilltoCustomer.InvoiceNumber,
                 'InvoiceReason': DataBilltoCustomer.InvoiceReason,
                 'Designations': DataBilltoCustomer.Designations,
@@ -53,6 +53,6 @@ class TestCustomer_Bill(APITestCase):
         self.assertEqual(response.status_code, 405)
         # Enfin, vérifions qu'aucune nouvelle catégorie n’a été créée malgré le status code 405
         self.assertFalse(Customer_Bill.objects.exists())
-        """
+
 
 
