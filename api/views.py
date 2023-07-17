@@ -9,7 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 
 class CustomerBillViewset(ReadOnlyModelViewSet):#(MultipleSerializerMixin, ModelViewSet) #TODO mettre ça pour utiliser tout le CRUD
     serializer_class = CustomerBillSerializer
-    #TODO voir si nous ne devons pas rajouter plus d'élements comme une authentification que pour un certain genre de personnes
+    #TODO voir si no²us ne devons pas rajouter plus d'élements comme une authentification que pour un certain genre de personnes
     #permission_classes = [IsAuthenticated]#TODO mettre ça pour autoriser le CRUD juste aux personnes identifiées
 
     def get_queryset(self):
